@@ -1,5 +1,5 @@
 Name:           c-ares
-Version:        1.15.0
+Version:        1.16.0
 Release:        1
 Summary:        A C library for asynchronous DNS requests
 
@@ -39,8 +39,7 @@ make %{?_smp_mflags}
 
 %files
 %doc CHANGES LICENSE.md
-%{_libdir}/libcares.so.2.3.0
-%{_libdir}/libcares.so.2
+%{_libdir}/*.so.*
 
 %files devel
 %{_libdir}/pkgconfig/*.pc
@@ -53,5 +52,11 @@ make %{?_smp_mflags}
 %{_mandir}/man3/*
 
 %changelog
+* Fri Apr 17 2020 liaichun<liaichun@huawei.com> - 1.16.0-1
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:update to 1.16.0
+
 * Mon Sep 09 2019 openEuler Buildteam <buildteam@openeuler.org> - 1.15.0-1
 - Package Init
