@@ -1,5 +1,5 @@
 Name:           c-ares
-Version:        1.15.0
+Version:        1.16.1
 Release:        1
 Summary:        A C library for asynchronous DNS requests
 
@@ -9,7 +9,10 @@ Source0:        https://github.com/c-ares/c-ares/releases/tag/%{name}-%{version}
 
 BuildRequires:  gcc autoconf automake libtool
 # Patch0 from Redhat is applied for stopping overriding AC_CONFIG_MACRO_DIR
-Patch0:         0001-Use-RPM-compiler-options.patch
+Patch0000:     0000-Use-RPM-compiler-options.patch
+Patch0001:     0001-Fix-invalid-read-in-ares_parse_soa_reply.patch
+Patch0002:     0002-Fix-sizeof-sizeof-addr.saX-sizeof-addr.saX-in-readad.patch
+Patch0003:     0003-Avoid-buffer-overflow-in-RC4-loop-comparison-336.patch
 %description
 This is c-ares, an asynchronous resolver library. It is intended for applications
 which need to perform DNS queries without blocking, or need to perform multiple
@@ -39,8 +42,7 @@ make %{?_smp_mflags}
 
 %files
 %doc CHANGES LICENSE.md
-%{_libdir}/libcares.so.2.3.0
-%{_libdir}/libcares.so.2
+%{_libdir}/*.so.*
 
 %files devel
 %{_libdir}/pkgconfig/*.pc
@@ -53,5 +55,11 @@ make %{?_smp_mflags}
 %{_mandir}/man3/*
 
 %changelog
+* Wed Jul 22 2020 gaihuiying <gaihuiying1@huawei.com> - 1.16.1-1
+- Type:requirement
+- ID:NA
+- SUG:NA
+- DESC:update c-ares version to 1.16.1
+
 * Mon Sep 09 2019 openEuler Buildteam <buildteam@openeuler.org> - 1.15.0-1
 - Package Init
