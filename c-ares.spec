@@ -1,11 +1,11 @@
 Name:           c-ares
 Version:        1.16.1
-Release:        1
+Release:        2
 Summary:        A C library for asynchronous DNS requests
 
 License:        MIT
 URL:            https://github.com/c-ares/c-ares
-Source0:        https://github.com/c-ares/c-ares/releases/tag/%{name}-%{version}.tar.gz
+Source0:        https://github.com/c-ares/c-ares/releases/download/cares-1_16_1/c-ares-1.16.1.tar.gz
 
 BuildRequires:  gcc autoconf automake libtool
 # Patch0 from Redhat is applied for stopping overriding AC_CONFIG_MACRO_DIR
@@ -55,6 +55,12 @@ make %{?_smp_mflags}
 %{_mandir}/man3/*
 
 %changelog
+* Tue Sep 8 2020 lunankun <lunankun@huawei.com> - 1.16.1-2
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:fix source0 url
+
 * Tue Aug 25 2020 gaihuiying <gaihuiying1@huawei.com> - 1.16.1-1
 - Type:requirement
 - ID:NA
