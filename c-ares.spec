@@ -1,6 +1,6 @@
 Name:           c-ares
 Version:        1.16.1
-Release:        3
+Release:        2
 Summary:        A C library for asynchronous DNS requests
 
 License:        MIT
@@ -56,14 +56,8 @@ make %{?_smp_mflags}
 %{_mandir}/man3/*
 
 %changelog
-* Thu Mar 11 2021 openEuler Buildteam <buildteam@openeuler.org> - 1.16.1-3
+* Thu Mar 11 2021 openEuler Buildteam <buildteam@openeuler.org> - 1.16.1-2
 - fix CVE-2020-8277
-
-* Tue Sep 8 2020 lunankun <lunankun@huawei.com> - 1.16.1-2
-- Type:bugfix
-- ID:NA
-- SUG:NA
-- DESC:fix source0 url
 
 * Tue Aug 25 2020 gaihuiying <gaihuiying1@huawei.com> - 1.16.1-1
 - Type:requirement
