@@ -1,6 +1,6 @@
 Name:           c-ares
 Version:        1.16.1
-Release:        3
+Release:        4
 Summary:        A C library for asynchronous DNS requests
 
 License:        MIT
@@ -14,6 +14,9 @@ Patch1:         0001-Fix-invalid-read-in-ares_parse_soa_reply.patch
 Patch2:         0002-Fix-sizeof-sizeof-addr.saX-sizeof-addr.saX-in-readad.patch
 Patch3:         0003-Avoid-buffer-overflow-in-RC4-loop-comparison-336.patch
 Patch4:         CVE-2020-8277.patch
+Patch5:         backport-001-CVE-2021-3672.patch
+Patch6:         backport-002-CVE-2021-3672.patch
+
 %description
 This is c-ares, an asynchronous resolver library. It is intended for applications
 which need to perform DNS queries without blocking, or need to perform multiple
@@ -56,6 +59,9 @@ make %{?_smp_mflags}
 %{_mandir}/man3/*
 
 %changelog
+* Thu Aug 12 2021 gaihuiying <gaihuiying1@huawei.com> - 1.16.1-4
+- fix CVE-2021-3672
+
 * Thu Mar 11 2021 openEuler Buildteam <buildteam@openeuler.org> - 1.16.1-3
 - fix CVE-2020-8277
 
