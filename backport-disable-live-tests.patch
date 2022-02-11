@@ -1,0 +1,26 @@
+Conflict:NA
+Reference:https://build.opensuse.org/package/view_file/openSUSE:Factory/c-ares/disable-live-tests.patch?expand=1
+From 4cfbdaee9697d084045bc83a7b1555e406494aa0 Mon Sep 17 00:00:00 2001
+From: chengyechun <chengyechun1@huawei.com>
+Date: Fri, 11 Feb 2022 17:23:54 +0800
+Subject: [PATCH] disable live tests
+
+---
+ test/Makefile.inc | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/test/Makefile.inc b/test/Makefile.inc
+index 91860e2..ecd22a4 100644
+--- a/test/Makefile.inc
++++ b/test/Makefile.inc
+@@ -14,7 +14,6 @@ TESTSOURCES = ares-test-main.cc	\
+   ares-test-parse-srv.cc		\
+   ares-test-parse-txt.cc		\
+   ares-test-misc.cc			\
+-  ares-test-live.cc			\
+   ares-test-mock.cc			\
+   ares-test-mock-ai.cc			\
+   ares-test-internal.cc		\
+-- 
+1.8.3.1
+
