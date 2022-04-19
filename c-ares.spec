@@ -1,6 +1,6 @@
 Name:           c-ares
 Version:        1.18.1
-Release:        1
+Release:        2
 Summary:        A C library for asynchronous DNS requests
 
 License:        MIT
@@ -30,7 +30,7 @@ shared objects are contained in %{name}-devel package.
 
 %build
 autoreconf -if
-%configure --enable-shared --disable-static --disable-dependency-tracking
+%configure --enable-shared --disable-dependency-tracking
 make %{?_smp_mflags}
 
 %install
@@ -45,6 +45,7 @@ make %{?_smp_mflags}
 %files devel
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/libcares.so
+%{_libdir}/libcares.a
 %{_includedir}/*.h
 
 %files help
@@ -52,6 +53,12 @@ make %{?_smp_mflags}
 %{_mandir}/man3/*
 
 %changelog
+* Mon Apr 18 2022 quanhongfei <quanhongfei@h-partners.com> - 1.18.1-2
+- Type:bugfix
+- Id:NA
+- SUG:NA
+- DESC:add libcares.a to c-ares-devel
+
 * Thu Dec 02 2021 quanhongfei <quanhongfei@huawei.com> - 1.18.1-1
 - Type:requirements
 - Id:NA
