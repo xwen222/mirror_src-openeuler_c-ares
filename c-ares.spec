@@ -1,15 +1,16 @@
 Name:           c-ares
 Version:        1.18.1
-Release:        2
+Release:        3
 Summary:        A C library for asynchronous DNS requests
 
 License:        MIT
 URL:            https://github.com/c-ares/c-ares
 Source0:        https://github.com/c-ares/c-ares/releases/download/cares-1_18_1/%{name}-%{version}.tar.gz
 
-BuildRequires:  gcc autoconf automake libtool
+BuildRequires:  gcc autoconf automake libtool g++
 # Patch0 from Redhat is applied for stopping overriding AC_CONFIG_MACRO_DIR
-Patch0:     0000-Use-RPM-compiler-options.patch
+Patch0:         0000-Use-RPM-compiler-options.patch
+Patch1:         backport-disable-live-tests.patch
 
 %description
 This is c-ares, an asynchronous resolver library. It is intended for applications
@@ -38,6 +39,10 @@ make %{?_smp_mflags}
 %delete_la
 %ldconfig_scriptlets
 
+%check
+%make_build -C test
+./test/arestest
+
 %files
 %doc CHANGES LICENSE.md
 %{_libdir}/*.so.*
@@ -53,6 +58,12 @@ make %{?_smp_mflags}
 %{_mandir}/man3/*
 
 %changelog
+* Thu Jun 09 2022 gaihuiying <eaglegai@163.com> - 1.18.1-3
+- Type:bugfix
+- Id:NA
+- SUG:NA
+- DESC:enable test
+
 * Mon Apr 18 2022 quanhongfei <quanhongfei@h-partners.com> - 1.18.1-2
 - Type:bugfix
 - Id:NA
