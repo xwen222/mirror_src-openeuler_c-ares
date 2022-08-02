@@ -1,6 +1,6 @@
 Name:           c-ares
 Version:        1.18.1
-Release:        2
+Release:        3
 Summary:        A C library for asynchronous DNS requests
 
 License:        MIT
@@ -60,6 +60,12 @@ cd ../
 %{_mandir}/man3/*
 
 %changelog
+* Tue Aug 02 2022 gaihuiying <eaglegai@163.com> - 1.18.1-3
+- Type:bugfix
+- Id:NA
+- SUG:NA
+- DESC:rebuild to 1.18.1-3
+
 * Wed Feb 9 2022 chengyechun <chengyechun1@huawei.com> - 1.18.1-2
 - Type:bugfix
 - Id:NA
