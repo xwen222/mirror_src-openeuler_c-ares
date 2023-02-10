@@ -1,6 +1,6 @@
 Name:           c-ares
 Version:        1.16.1
-Release:        3
+Release:        4
 Summary:        A C library for asynchronous DNS requests
 
 License:        MIT
@@ -16,6 +16,7 @@ Patch3:         0003-Avoid-buffer-overflow-in-RC4-loop-comparison-336.patch
 Patch4:         CVE-2020-8277.patch
 Patch5:         backport-001-CVE-2021-3672.patch
 Patch6:         backport-002-CVE-2021-3672.patch
+Patch7:         backport-add-str-len-check-in-config_sortlist-to-avoid-stack-overflow.patch
 %description
 This is c-ares, an asynchronous resolver library. It is intended for applications
 which need to perform DNS queries without blocking, or need to perform multiple
@@ -58,6 +59,12 @@ make %{?_smp_mflags}
 %{_mandir}/man3/*
 
 %changelog
+* Fri Feb 10 2023 xingwei <xingwei14@h-partners.com> - 1.16.1-4
+- Type:cves
+- CVE:CVE-2022-4904
+- SUG:NA
+- DESC:fix CVE-2022-4904
+
 * Thu Aug 12 2021 gaihuiying <gaihuiying1@huawei.com> - 1.16.1-3
 - fix CVE-2021-3672
 
