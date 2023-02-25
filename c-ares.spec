@@ -1,13 +1,13 @@
 Name:           c-ares
 Version:        1.18.1
-Release:        4
+Release:        5
 Summary:        A C library for asynchronous DNS requests
 
 License:        MIT
 URL:            https://github.com/c-ares/c-ares
 Source0:        https://github.com/c-ares/c-ares/releases/download/cares-1_18_1/%{name}-%{version}.tar.gz
 
-BuildRequires:  gcc autoconf automake libtool g++
+BuildRequires:  gcc make autoconf automake libtool g++
 # Patch0 from Redhat is applied for stopping overriding AC_CONFIG_MACRO_DIR
 Patch0:         0000-Use-RPM-compiler-options.patch
 Patch1:         backport-disable-live-tests.patch
@@ -32,7 +32,7 @@ shared objects are contained in %{name}-devel package.
 
 %build
 autoreconf -if
-%configure --enable-shared --disable-dependency-tracking
+%configure --enable-shared --disable-static --disable-dependency-tracking
 make %{?_smp_mflags}
 
 %install
@@ -51,7 +51,6 @@ make %{?_smp_mflags}
 %files devel
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/libcares.so
-%{_libdir}/libcares.a
 %{_includedir}/*.h
 
 %files help
@@ -59,6 +58,13 @@ make %{?_smp_mflags}
 %{_mandir}/man3/*
 
 %changelog
+* Sat Feb 25 2023 yanglu <yanglu72@h-partners.com> - 1.18.1-5
+- Type:bugfix
+- CVE:NA
+- SUG:NA
+- DESC:delete a static library file
+       add BuildRequires make to fix build problem
+
 * Fri Feb 10 2023 xingwei <xingwei14@h-partners.com> - 1.18.1-4
 - Type:cves
 - CVE:CVE-2022-4904
