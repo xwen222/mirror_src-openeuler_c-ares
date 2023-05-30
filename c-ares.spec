@@ -1,6 +1,6 @@
 Name:           c-ares
 Version:        1.16.1
-Release:        5
+Release:        6
 Summary:        A C library for asynchronous DNS requests
 
 License:        MIT
@@ -18,6 +18,7 @@ Patch5:         backport-001-CVE-2021-3672.patch
 Patch6:         backport-002-CVE-2021-3672.patch
 Patch7:         backport-add-str-len-check-in-config_sortlist-to-avoid-stack-overflow.patch
 Patch8:         backport-disable-live-tests.patch
+Patch9:         backport-CVE-2023-32067.patch
 
 %description
 This is c-ares, an asynchronous resolver library. It is intended for applications
@@ -65,6 +66,12 @@ make %{?_smp_mflags}
 %{_mandir}/man3/*
 
 %changelog
+* Mon May 29 2023 xinghe <xinghe2@h-partners.com> - 1.16.1-6
+- Type:cves
+- CVE:CVE-2023-32067
+- SUG:NA
+- DESC:fix CVE-2023-32067
+
 * Wed Mar 08 2023 xinghe <xinghe2@h-partners.com> - 1.16.1-5
 - Type:bugfix
 - CVE:NA
